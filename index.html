@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ভূমি উন্নয়ন করের বিল | সড়ক ও জনপদ বিভাগ, কুমিল্লা</title>
+    
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Government_Seal_of_Bangladesh.svg/1200px-Government_Seal_of_Bangladesh.svg.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #006747; /* BD Green */
+            --secondary: #DA291C; /* BD Red */
+            --dark: #1e272e;
+            --glass: rgba(255, 255, 255, 0.95);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans Bengali', sans-serif;
+            background: #f0f2f5;
+            background-image: radial-gradient(#00674710 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+        }
+
+        /* Header Section */
+        .sidebar-header {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: var(--shadow);
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 40px;
+            padding: 0 15px;
+        }
+
+        /* Search Section */
+        .search-container {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .search-container input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-family: 'Noto Sans Bengali';
+        }
+
+        /* Grid & Card Section */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .mouja-card {
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: var(--shadow);
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mouja-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+        }
+
+        .badge {
+            background: #e8f5e9;
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .mouja-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item label {
+            display: block;
+            color: #7f8c8d;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .stat-item span {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .price-footer {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            background: var(--primary);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .action-btn.receipt { background: #2980b9; }
+
+        .action-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        /* Grand Total Section */
+        .grand-total-card {
+            background: var(--dark);
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 8px solid var(--secondary);
+        }
+
+        .total-value { font-size: 32px; font-weight: 700; color: #55efc4; }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            .grand-total-card { text-align: center; flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Government_Seal_of_Bangladesh.svg/1200px-Government_Seal_of_Bangladesh.svg.png" style="width: 70px; margin-bottom: 15px;">
+    <h1 style="margin:0; font-size: 28px;"> সড়ক ও জনপদ বিভাগ, কুমিল্লা </h1>
+    <p> ভূমি উন্নয়ন করের বিল | অর্থবছর: ২০২৫-২৬ (১৪৩২ বাংলা)</p>
+</div>
+
+<div class="container">
+    <div class="search-container">
+        <i class="fa-solid fa-search" style="color: #ccc; margin-right: 15px;"></i>
+        <input type="text" id="searchInput" placeholder="মৌজার নাম দিয়ে রশিদ খুঁজুন...">
+    </div>
+
+    <div class="grid" id="moujaGrid">
+        </div>
+
+    <div class="grand-total-card">
+        <div>
+            <div style="font-size: 14px; opacity: 0.8;">সর্বমোট দাবীর পরিমাণ</div>
+            <div class="total-value">৳ ৯,৯৬,৩২০/-</div>
+        </div>
+        <div style="text-align: right;">
+            <p style="font-size: 16px; margin: 0;">কথায়: নয় লক্ষ ছিয়ানব্বই হাজার তিনশত বিশ টাকা মাত্র</p>
+            <small style="opacity: 0.6;">সংস্থা: সড়ক ও জনপদ বিভাগ, কুমিল্লা</small>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; রবিউল হাসান</p>
+</footer>
+
+<script>
+    // আপনার দেওয়া সব ডেটা মার্জ করা হয়েছে
+    const moujaData = [
+        { id: "০১", name: "বাতিসা", khotiyan: "৩", area: "২৩.৫৪০০ একর", token: "2526-0038446536", amount: "৯৪,১৬০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/MjAyNjAzMTQ4ODI5MTg4" },
+        { id: "০২", name: "নানকরা কিসমত", khotiyan: "২", area: "৪৫.২৩০০ একর", token: "2526-0038489437", amount: "১,৮০,৯২০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/NDYyNjAzMTQ4ODU5Mjc5" },
+        { id: "০৩", name: "পূর্ব ধনমুড়ি", khotiyan: "২", area: "১৯.২২০০ একর", token: "2526-0038479304", amount: "১,৯২,২০০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/OTEyNjAzMTQ4ODUxMDU3" },
+        { id: "০৪", name: "ফাল্গুনকরা", khotiyan: "৩", area: "২.২৪০০ একর", token: "2526-0038488784", amount: "২২,৪০০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/NjMyNjAzMTQ4ODU3ODU1" },
+        { id: "০৫", name: "দূর্গাপুর", khotiyan: "৩", area: "১৫.৩৮০০ একর", token: "2526-0038487166", amount: "৬১,৫২০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/NjMyNjAzMTQ4ODU2ODc4" },
+        { id: "০৬", name: "বসন্তপুর", khotiyan: "২", area: "২২.০৭০০ একর", token: "2526-0038485906", amount: "৮৮,২৮০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/NTEyNjAzMTQ4ODU1Nzg2" },
+        { id: "০৭", name: "আনন্দপুর", khotiyan: "২", area: "১.০১০০ একর", token: "2526-0038483157", amount: "৪,০৪০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/NjkyNjAzMTQ4ODUzNzQx" },
+        { id: "০৮", name: "কালিকসার", khotiyan: "২", area: "১০.৭৮০০ একর", token: "2526-0038481871", amount: "৪৩,১২০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/OTAyNjAzMTQ4ODUyNDE2" },
+        { id: "০৯", name: "কালিকাপুর", khotiyan: "২", area: "৪.৫৬০০ একর", token: "2526-0038469782", amount: "১৮,২৪০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/MTIyNjAzMTQ4ODQyNDI2" },
+        { id: "১০", name: "চান্দিপুর", khotiyan: "২", area: "৩.৬৮০০ একর", token: "2526-0038467891", amount: "৩৬,৮০০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/OTYyNjAzMTQ4ODQxMTU2" },
+        { id: "১১", name: "পশ্চিম ধনমুড়ি", khotiyan: "২", area: "২৩.৮০০০ একর", token: "2526-0038463862", amount: "২,৩৮,০০০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/ODIyNjAzMTQ4ODM4Nzc5" },
+        { id: "১২", name: "আটগ্রাম", khotiyan: "২", area: "৪.১৬০০ একর", token: "2526-0038461221", amount: "১৬,৬৪০", r_url: "https://lsg-pg.land.gov.bd/otc-receipt/NTkyNjAzMTQ4ODM2ODI2" }
+    ];
+
+    const grid = document.getElementById('moujaGrid');
+
+    function renderCards(data) {
+        grid.innerHTML = "";
+        data.forEach(item => {
+            const v_link = `https://challanverification.finance.gov.bd/echalan/details.php?challanNo=${item.token}`;
+            
+            grid.innerHTML += `
+                <div class="mouja-card">
+                    <span class="badge">ক্রমিক: ${item.id}</span>
+                    <h3 class="mouja-name">${item.name}</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item"><label>খতিয়ান নং</label><span>${item.khotiyan}</span></div>
+                        <div class="stat-item"><label>জমির পরিমাণ</label><span>${item.area}</span></div>
+                        <div class="stat-item"><label>টোকেন নম্বর</label><span style="font-family:Outfit;">${item.token}</span></div>
+                    </div>
+                    <div class="price-footer">
+                        <div class="amount">৳ ${item.amount}/-</div>
+                        <div class="btn-group">
+                            <a href="${v_link}" class="action-btn" target="_blank" title="চালান যাচাই">
+                                <i class="fa-solid fa-download"></i>
+                            </a>
+                            <a href="${item.r_url}" class="action-btn receipt" target="_blank" title="রশিদ ডাউনলোড">
+                                <i class="fa-solid fa-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // প্রাথমিক রেন্ডার
+    renderCards(moujaData);
+
+    // সার্চ ফাংশনালিটি
+    document.getElementById('searchInput').addEventListener('keyup', function(e) {
+        let term = e.target.value.toLowerCase();
+        let filtered = moujaData.filter(item => 
+            item.name.toLowerCase().includes(term) || 
+            item.token.includes(term)
+        );
+        renderCards(filtered);
+    });
+</script>
+
+</body>
+</html>
